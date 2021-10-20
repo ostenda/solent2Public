@@ -36,25 +36,42 @@
     </head>
     <body>
         <h1>JSP Example 3: User list</h1>
-
-        <h2>user list</h2>
+        
+        <table>
+            <tr>
+                <th>Name</th>
+                
+            </tr>
         <% for (String user : users) {%>
-        <p><%=user%></p>
+        <tr>
+            <td><%=user%></td>
+            <td>            
+                <form action="./jspexample3.jsp" method="get">
+                <input type="hidden" name="userName" value="<%=user%>">
+                <input type="hidden" name="action" value="removeUser">
+                <button type="submit" >remove</button>
+                </form>
+            </td>
+        </tr>
+        
+        
         <%
             }
         %>
-        <h2>commands</h2>
+        </table>
+        
+        
+        
+        <h2>Add users</h2>
         <form action="./jspexample3.jsp" method="get">
             <p>user name <input type="text" name="userName" value=""></p>
             <input type="hidden" name="action" value="addUser">
             <button type="submit" >add name to list</button>
         </form> 
         <br>
-        <form action="./jspexample3.jsp" method="get">
-            <p>user name <input type="text" name="userName" value=""></p>
-            <input type="hidden" name="action" value="removeUser">
-            <button type="submit" >remove name from list</button>
-        </form> 
+        
+            
+        
 
 
     </body>
