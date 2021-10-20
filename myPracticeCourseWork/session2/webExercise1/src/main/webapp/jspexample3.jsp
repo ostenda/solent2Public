@@ -8,23 +8,32 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ page import="java.util.List" %>
 <%@ page import="java.util.ArrayList" %>
+<%@ page import="org.solent.oodd.webexercise1.model.user" %>
+
 <%
     // retrieve the stored users list from the session
-    List<String> users = (List<String>) session.getAttribute("users");
+    List<user> users = (List<user>) session.getAttribute("userList");
     if (users == null) {
-        users = new ArrayList<String>();
-        session.setAttribute("users", users);
+        users = new ArrayList<user>();
+        session.setAttribute("userList", users);
     }
-
+    
     String name = request.getParameter("userName");
+    String address = request.getParameter("userAddress");
+    String index = request.getParameter("index");
+    
 
     // find what action to perform on the page
     String action = request.getParameter("action");
 
     if ("removeUser".equals(action)) {
-        users.remove(name);
+        int i = Integer.parseInt(index);
+        users.remove(i);
     } else if ("addUser".equals(action)) {
-        users.add(name);
+        user user = new user();
+        user.setName(name);
+        user.setAddress(address);
+        users.add(user);
     }
 
 %>
@@ -39,20 +48,25 @@
         
         <table>
             <tr>
+                <th>No</th>
                 <th>Name</th>
-                
+                <th>Address</th>
             </tr>
-        <% for (String user : users) {%>
-        <tr>
-            <td><%=user%></td>
-            <td>            
-                <form action="./jspexample3.jsp" method="get">
-                <input type="hidden" name="userName" value="<%=user%>">
-                <input type="hidden" name="action" value="removeUser">
-                <button type="submit" >remove</button>
-                </form>
-            </td>
-        </tr>
+         <% for (int idx = 0; idx < users.size(); idx++) {
+                    user user = users.get(idx);
+            %>
+            <tr>
+                <td><%=idx + 1%></td>
+                <td><%=user.getName()%></td>
+                <td><%=user.getAddress()%></td>
+                <td>            
+                    <form action="./jspexample3.jsp" method="get">
+                        <input type="hidden" name="index" value="<%=idx%>">
+                        <input type="hidden" name="action" value="removeUser">
+                        <button type="submit" >remove</button>
+                    </form>
+                </td>
+            </tr>
         
         
         <%
@@ -65,9 +79,16 @@
         <h2>Add users</h2>
         <form action="./jspexample3.jsp" method="get">
             <p>user name <input type="text" name="userName" value=""></p>
+            <p>user address <input type="text" name="userAdress" value=""></p>
             <input type="hidden" name="action" value="addUser">
+            <input type="hidden" name="action" value="addAddress">
             <button type="submit" >add name to list</button>
         </form> 
+        
+        <form action="./jspexample3.jsp" method="get">
+            
+            
+        </form>
         <br>
         
             
