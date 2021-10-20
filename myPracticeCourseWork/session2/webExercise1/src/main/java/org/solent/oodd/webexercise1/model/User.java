@@ -4,7 +4,7 @@ package org.solent.oodd.webexercise1.model;
  *
  * @author admin
  */
-public class user {
+public class User {
     private String name;
     private String address;
 

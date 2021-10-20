@@ -8,20 +8,19 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ page import="java.util.List" %>
 <%@ page import="java.util.ArrayList" %>
-<%@ page import="org.solent.oodd.webexercise1.model.user" %>
+<%@ page import="org.solent.oodd.webexercise1.model.User" %>
 
 <%
-    // retrieve the stored users list from the session
-    List<user> users = (List<user>) session.getAttribute("userList");
+    // retreive the stored users list from the session
+    List<User> users = (List<User>) session.getAttribute("usersList");
     if (users == null) {
-        users = new ArrayList<user>();
-        session.setAttribute("userList", users);
+        users = new ArrayList<User>();
+        session.setAttribute("usersList", users);
     }
-    
+
     String name = request.getParameter("userName");
     String address = request.getParameter("userAddress");
     String index = request.getParameter("index");
-    
 
     // find what action to perform on the page
     String action = request.getParameter("action");
@@ -30,7 +29,7 @@
         int i = Integer.parseInt(index);
         users.remove(i);
     } else if ("addUser".equals(action)) {
-        user user = new user();
+        User user = new User();
         user.setName(name);
         user.setAddress(address);
         users.add(user);
@@ -53,7 +52,7 @@
                 <th>Address</th>
             </tr>
          <% for (int idx = 0; idx < users.size(); idx++) {
-                    user user = users.get(idx);
+                    User user = users.get(idx);
             %>
             <tr>
                 <td><%=idx + 1%></td>
@@ -79,21 +78,14 @@
         <h2>Add users</h2>
         <form action="./jspexample3.jsp" method="get">
             <p>user name <input type="text" name="userName" value=""></p>
-            <p>user address <input type="text" name="userAdress" value=""></p>
+            <p>user address <input type="text" name="userAddress" value=""></p>
             <input type="hidden" name="action" value="addUser">
-            <input type="hidden" name="action" value="addAddress">
             <button type="submit" >add name to list</button>
         </form> 
-        
-        <form action="./jspexample3.jsp" method="get">
-            
-            
-        </form>
+              
         <br>
         
             
-        
-
 
     </body>
 </html>
