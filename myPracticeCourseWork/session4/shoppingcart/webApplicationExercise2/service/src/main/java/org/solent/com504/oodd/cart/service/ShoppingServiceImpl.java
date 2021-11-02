@@ -34,6 +34,8 @@ public class ShoppingServiceImpl implements ShoppingService {
             itemMap.put(item.getName(), item);
         }
     }
+    
+   
 
     @Override
     public List<ShoppingItem> getAvailableItems() {
@@ -41,11 +43,12 @@ public class ShoppingServiceImpl implements ShoppingService {
     }
 
     @Override
-    public boolean purchaseItems(ShoppingCart shoppingCart) {
+    public Invoice purchaseItems(ShoppingCart shoppingCart) {
         System.out.println("purchased items");
         for (ShoppingItem shoppingItem : shoppingCart.getShoppingCartItems()) {
             System.out.println(shoppingItem);
         }
+        
 
         return true;
     }

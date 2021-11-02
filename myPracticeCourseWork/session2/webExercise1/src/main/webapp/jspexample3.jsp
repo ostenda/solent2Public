@@ -9,7 +9,6 @@
 <%@ page import="java.util.List" %>
 <%@ page import="java.util.ArrayList" %>
 <%@ page import="org.solent.oodd.webexercise1.model.User" %>
-
 <%
     // retreive the stored users list from the session
     List<User> users = (List<User>) session.getAttribute("usersList");

@@ -46,7 +46,7 @@ public class CardCheckerClientTest {
         CardValidationResult result = cardCheckerClient.postCheckCard(creditCard);
         assertTrue(result.isValid());
 
-        creditCard.setCardnumber("5133880000000013"); // wrong number
+        creditCard.setCardnumber("5133880000000012"); // wrong number
         result = cardCheckerClient.postCheckCard(creditCard);
         assertFalse(result.isValid());
 

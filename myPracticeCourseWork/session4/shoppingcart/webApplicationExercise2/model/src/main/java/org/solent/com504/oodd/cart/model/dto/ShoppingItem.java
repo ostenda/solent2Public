@@ -65,6 +65,7 @@ public class ShoppingItem {
         return "ShoppingItem{" + "uuuid=" + uuid + ", name=" + name + ", quantity=" + quantity + ", price=" + price + '}';
     }
     
+    
             
     
 }
