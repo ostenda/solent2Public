@@ -6,8 +6,11 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+<<<<<<< HEAD
 import static org.eclipse.jdt.internal.compiler.parser.Parser.name;
 import static org.graalvm.compiler.nodes.memory.address.OffsetAddressNode.address;
+=======
+>>>>>>> upstream/master
 import org.solent.oodd.webexercise1.model.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

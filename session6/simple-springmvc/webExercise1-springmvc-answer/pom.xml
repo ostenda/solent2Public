@@ -72,8 +72,13 @@
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.1</version>
                 <configuration>
+<<<<<<< HEAD
                     <source>1.7</source>
                     <target>1.7</target>
+=======
+                    <source>1.8</source>
+                    <target>1.8</target>
+>>>>>>> upstream/master
                     <compilerArguments>
                         <endorseddirs>${endorsed.dir}</endorseddirs>
                     </compilerArguments>

@@ -87,7 +87,12 @@
             <artifactId>cglib-nodep</artifactId>
             <scope>compile</scope>
         </dependency>
-
+        <dependency>
+            <groupId>solent.ac.uk.ood.examples</groupId>
+            <artifactId>webApplicationExercise2-service</artifactId>
+            <version>1.0-SNAPSHOT</version>
+            <type>jar</type>
+        </dependency>
     </dependencies>
 
     <build>
